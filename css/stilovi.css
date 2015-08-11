@@ -1,0 +1,246 @@
+@charset "utf-8";
+/* @import ("reset.css"); */
+/* ------------------------------------ START OF RESET.CSS ------------------------------------------------------- */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* ------------------------------------ END OF RESET.CSS ------------------------------------------------------- *
+/* Positioning
+    static - The element's box is laid out automatically according to the normal flow.
+    relative - The position of the element's box is relative to its normal flow position. It is offset from its normal flow position by using the top, right, bottom, and left properties. NOTE: The element's box is treated as though it has no offset when the position of the following box is determined.
+    absolute - The element's box is set to an absolute position with respect to its containing block. Its containing block is the nearest ancestor element that has its position property set to relative, absolute, or fixed. The top, right, bottom, and left properties are used to set the offset of the element's box with respect to its containing block. NOTE: The element's box is treated as though it does not exist when the position of later sibling element boxes are determined.
+    fixed - The position of the element's box is offset from its browser window by using the top, right, bottom, and left properties. The element's box will not move when the browser window is scrolled. NOTE: The element's box is treated as though it does not exist when the position of later sibling element boxes are determined. If the fixed value is being used to style print media, then the element's box will be rendered on every page.
+    inherit - The inherit keyword is used to specify that the value for this property should be taken from the parent element. If inherit is used with the root element, then the initial value for this property will be used.
+*/
+
+/* Start of Login form styles */
+
+.login-form 
+{
+    background: #fff none repeat scroll 0 0;
+    margin: 9% auto 4%;
+    position: relative;
+    width: 32%;
+}
+	
+
+
+body
+{
+	color: orange;
+	background: #f6f0e7 url(../slike/loginpage.png);
+	font-family: Play, sans-serif;
+	font-size: 1em;
+	z-index: 1;
+}
+
+#container
+{
+	background: #999;
+	width: 956;
+	margin: 0 auto;
+	z-index: 10;
+}
+
+#sideBar
+{
+	float: left;
+	width: 200px;
+	min-height: 610px;
+	height: 98%;
+	background: #008a8a;
+	padding: 2% 9px 0 1%;
+	z-index: 10;
+	
+}
+#wsite-title 
+{
+	color: #FFC;
+    text-shadow: 0px -2px 0px #000,
+                 0px 2px 3px blue;
+}
+.wsite-logo, .wsite-logo a {
+    color: #ffffff;
+    font-family: "Lato",Arial,Helvetica,sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.wsite-logo img, .wsite-logo span {
+    vertical-align: top !important;
+}
+#avMeni {
+    clear: left;
+    margin: 70px 0 0;
+    padding: 0;
+}
+#avMeni ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+#avMeni li a {
+    border-bottom: 1px solid #903f3f;
+    color: #fff;
+    display: block;
+    font-family: "Calibri",Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+    padding: 10px 5px 10px 14px;
+    text-decoration: none;
+}
+ li#active a, #avMeni a:hover { 
+	color: #fff; 
+	background: #006b6b; 
+}
+.meniDefault
+{
+	
+	position: relative;
+}
+ul.drugiNivo
+{
+	display: none;
+	position: relative;
+	background:	#008A8A;
+	left: 200px;
+}
+
+li#meni201:hover ul.drugiNivo, li#meni203:hover ul.drugiNivo
+{
+	display: inline-block;
+	position: relative;
+	top: -2em;
+	left: 70px;
+	float: right;
+
+}
+
+
+
+#mainWrap
+{
+	background: #333;
+	float: right;
+	width: 735px;
+    min-height: 410px;
+	height: 100%;
+	z-index: 10;
+}
+
+#header
+{
+	clear: both;
+	padding: 0;
+	z-index: 20;
+}
+#header-right {
+    height: 30px;
+}
+#header-right, #header-right table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    float: right;
+}
+#header-right td {
+    padding: 0 10 0 0;
+    text-align: right;
+    vertical-align: middle;
+}
+
+a {
+    color: #bd5353;
+    text-decoration: none;
+}
+
+
+#banner
+{
+	width: 100%;
+	height: 150px;
+	background: url("../slike/heartbeat1024.JPG");
+	background-size: cover;
+    background-repeat: no-repeat;
+	z-index: 20;
+}
+
+#content {
+    margin: 0;
+    !overflow-x: visible !important;
+    padding: 20px 10px;
+}
+.naslov
+{ 
+	text-align:center; 
+	font-size: 2.5em;
+}
+.slikaContent
+{
+	float: left;
+	clear: left;
+	padding: 10px;
+}
+
+#divLogin
+{
+	background: #233;
+	margin: auto;
+	width: 650px;
+	height: 300px;
+}
+
+
+#footer
+{
+}
+.siteFooter
+{
+}
