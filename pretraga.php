@@ -26,52 +26,75 @@
 
 <?php 
 $server = "localhost";
-$korisnik = "root";
-$sifra = "";
-$imeBaze = "sakila";
+
+	if (!empty($_POST["dbName"]) && ($_POST["dbName"] != "NAZIV BAZE")) 
+	{
+		$imeBaze=proveri($_POST["dbName"]);
+		} else {$imeBaze = "sakila";}
+	
+	if (!empty($_POST["korisnik"]) && ($_POST["korisnik"] != "KORISNIK")) 
+	{
+		$korisnik=proveri($_POST["korisnik"]);
+		} else {$korisnik = "root";}
+
+if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password")) 
+	{
+		$sifra=proveri($_POST["sifra"]);
+		} else {$sifra = "";}
+
+
+
 ?>
 
 <div id="container">
 	<div id="sideBar">
 		<span class="wsite-logo">
-			<a href="/">
+			<a href="index.php">
 				<span id="wsite-title">Pretraga Baze Podataka</span>
 			</a>
 		</span>
 			<div id="avMeni">
+			<p>Osnovne komande</p>
+			<br/>
 				<ul class="meniDefault">
 					<li id="active" class="meni-nav-1">
-						<a href="#"> Meni 1</a>
+						<a href="#"> GENERAL</a>
+					</li>					
+					<li id="meni200">
+						<a href="select.php"> SELECT</a>
 					</li>
 					<li id="meni201">
-						<a href="#"> Meni 2</a>
-							<ul class="drugiNivo">
-								<li><a href="#"> Meni 2.1</a></li>
-								<li><a href="#"> Meni 2.2</a></li>
-								<li><a href="#"> Meni 2.3</a></li>
-								<li><a href="#"> Meni 2.4</a></li>
-							</ul>
+						<a href="insert.php"> INSERT</a>
 					</li>				
 					<li id="meni202">
-						<a href="#"> Meni 3</a>
+						<a href="update.php"> UPDATE</a>
 					</li>				
 					<li id="meni203">
-						<a href="#"> Meni 4</a>
-							<ul class="drugiNivo">
-								<li><a href="#"> Meni 4.1</a></li>
-								<li><a href="#"> Meni 4.2</a></li>
-								<li><a href="#"> Meni 4.3</a></li>
-								<li><a href="#"> Meni 4.4</a></li>
-							</ul>					
+						<a href="#"> DELETE!</a>
 					</li>
 					<li id="meni204">
-						<a href="#"> Meni 5</a>
+						<a href="#"> WHERE</a>
 					</li>
 					<li id="meni205">
-						<a href="#"> Meni 6</a>
+						<a href="#"> JOINS</a>
+							<ul class="drugiNivo">
+								<li><a href="#"> LEFT Join</a></li>
+								<li><a href="#"> RIGHT Join</a></li>
+								<li><a href="#"> FULL Join</a></li>
+							</ul>
 					</li>
 					<li id="meni206">
-						<a href="#"> Meni 7</a>
+						<a href="#"> UNION</a>
+					</li>
+					<li id="meni207">
+						<a href="#"> <strong>Advanced</strong></a>
+							<ul class="drugiNivo">
+								<li><a href="#"> DISTINCT</a></li>
+								<li><a href="#"> AND & OR</a></li>
+								<li><a href="#"> ORDER BY</a></li>
+								<li><a href="#"> LIKE</a></li>
+								<li><a href="#"> BETWEEN</a></li>
+							</ul>							
 					</li>
 
 
@@ -82,102 +105,94 @@ $imeBaze = "sakila";
 	
 	<div id="mainWrap">
 		<div id="header">
-		<h3>Header</h3>
+		<h3 class="centriraj"><?php echo "Server: " . $server . "&nbsp;&nbsp;&nbsp&nbsp;&nbsp;  Ime Baze: " . $imeBaze . "&nbsp;&nbsp;&nbsp; &nbsp;&nbsp Korisnik: " . $korisnik?></h3>
 			<div style="clear:both"></div>
 		</div><!-- header -->
 		<div id="banner">
 
 		</div><!-- banner -->
-		<div id="main">
+		
+		
 		<div id="content">
-			
-				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" "name="forma1" id="forma1">
+
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" "name="forma1" id="forma1">
 	<br/>
-		<label>Unesi komandu:</label>
-		<input type="text" name="unos1" id="unos1"></input>
-		<br/><br/>
-		<input type="submit" name="izvsi" id="izvrsi" value="Izvrsi komandu"/>
-	</form>
+			<label>Unesi komandu:</label>
+			<input type="text" name="unos1" id="unos1"></input>
+			<br/><br/>
+			<input type="submit" name="izvsi" id="izvrsi" value="Izvrsi komandu"/>
+			</form>
 	<br/>
-	Unesena komada je: 
-	<?php 
-	if (!empty($_POST["unos1"]))
-	{
-		$prom=proveri($_POST["unos1"]);
-		
-		echo $prom;
-
-
-// Kreiranje konekcije
-$konekcija = new mysqli($server, $korisnik, $sifra, $imeBaze);
-
-// Proveri povezivanje
-if ($konekcija->connect_error) {
-    die("Connection failed: " . $konekcija->connect_error);
-}
-
-//$sql = "SELECT actor_id, first_name, last_name FROM actor";
-
-$sql = $prom;
-
-$result = $konekcija->query($sql);
-
-if ($result->num_rows > 0) 
-	{
-		// output data of each row
-		while($row = $result->fetch_assoc()) 
-			{
-			echo "actor_id: " . $row["actor_id"]. " - Name: " . $row["first_name"]. " " . $row["last_name"]. "<br>";
-			}
-	} 
-	else 
-		{
-			echo "0 results";
-		}
-$konekcija->close();		
-		
-	}
-	else
-		echo " ";
+	Unesena komada je: &nbsp; 
 	
-	//Funkcija koja proverava da li je unos regularan
-	function proveri($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-	return $data;
-}
-	?>
+		<?php 
+				if (!empty($_POST["unos1"]))
+				{
+					$prom=proveri($_POST["unos1"]);
+					
+					echo $prom;
+		?>
+				<br/><br/>
+				Rezultat upita:
+				<br/><br/>
+				<div id="divQuery">
+		<?php
+
+
+			// Kreiranje konekcije
+			$konekcija = new mysqli($server, $korisnik, $sifra, $imeBaze);
+
+			// Proveri povezivanje
+			if ($konekcija->connect_error) {
+				die("Connection failed: " . $konekcija->connect_error);
+			}
+
+			//$sql = "SELECT actor_id, first_name, last_name FROM actor";
+
+			$sql = $prom;
+
+			$result = $konekcija->query($sql);
+
+			if ($result->num_rows > 0) 
+				{
+					// output data of each row
+					while($row = $result->fetch_assoc()) 
+						{
+						echo "actor_id: " . $row["actor_id"]. " - Name: " . $row["first_name"]. " " . $row["last_name"]. "<br>";
+						}
+				} 
+				else 
+					{
+						echo "0 results";
+					}
+			$konekcija->close();		
+					
+				}
+				else
+					echo " ";
+				
+				//Funkcija koja proverava da li je unos regularan
+				function proveri($data) {
+					$data = trim($data);
+					$data = stripslashes($data);
+					$data = htmlspecialchars($data);
+				return $data;
+			}
+		?>
+	</div> <!-- divQuery -->
 			
 			
 		</div> <!-- content -->
+		
+		
 		<div id="footer">
 		<div class="siteFooter"></div>
-				<script type="text/javascript">
-					//&lt;!--
 
-				if (document.cookie.match(/(^|;)\s*is_mobile=1/)) {
-					var windowHref = window.location.href || '';
-					if (windowHref.indexOf('?') &gt; -1) {
-						windowHref += '&amp;';
-					} else {
-						windowHref += '?';
-					}
-					document.write(
-						"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;" +
-						"&lt;a class='wsite-view-link-mobile' href='" + windowHref + "view=mobile'&gt;Mobile Site&lt;/a&gt;"
-					);
-				}
-
-					//--&gt;
-				</script>
 		</div> <!-- footer -->
-		</div><!-- main -->
 	
 	
 	</div> <!-- mainWrap -->
 </div> <!-- container -->
 </body>
 </html>
-</!DOCUTYPE>
  

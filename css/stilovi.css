@@ -74,10 +74,20 @@ table {
 body
 {
 	color: orange;
-	background: #f6f0e7 url(../slike/loginpage.png);
+	background:url(../slike/interconnected.jpg)  no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+ 	background-size: cover;
+ 	position:relative;
 	font-family: Play, sans-serif;
 	font-size: 1em;
 	z-index: 1;
+}
+
+.centriraj
+{
+	text-align: center;
 }
 
 #container
@@ -93,7 +103,7 @@ body
 	float: left;
 	width: 200px;
 	min-height: 610px;
-	height: 98%;
+	height: 97%;
 	background: #008a8a;
 	padding: 2% 9px 0 1%;
 	z-index: 10;
@@ -154,7 +164,7 @@ ul.drugiNivo
 	left: 200px;
 }
 
-li#meni201:hover ul.drugiNivo, li#meni203:hover ul.drugiNivo
+li#meni205:hover ul.drugiNivo, li#meni207:hover ul.drugiNivo
 {
 	display: inline-block;
 	position: relative;
@@ -171,9 +181,10 @@ li#meni201:hover ul.drugiNivo, li#meni203:hover ul.drugiNivo
 	background: #333;
 	float: right;
 	width: 735px;
-    min-height: 410px;
+    min-height: 630px;
 	height: 100%;
 	z-index: 10;
+	overflow: auto;
 }
 
 #header
@@ -214,19 +225,17 @@ a {
 
 #content {
     margin: 0;
-    !overflow-x: visible !important;
     padding: 20px 10px;
 }
-.naslov
-{ 
-	text-align:center; 
-	font-size: 2.5em;
-}
-.slikaContent
+
+#unos1
 {
-	float: left;
-	clear: left;
-	padding: 10px;
+	width: 60%;
+}
+
+#divQuery
+{
+
 }
 
 #divLogin

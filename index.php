@@ -30,16 +30,16 @@
 					<div class="head">
 						<img src="images/logo115x2.PNG" alt=""/>
 					</div>
-				<form action="pretraga.php" method="get">
+				<form action="pretraga.php" method="post">
 					<label> Unesite detalje za pristup bazi.</label>
 					<br></br>
 					<li>
-						<input type="dbName" class="dbName" value="NAZIV BAZE" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'NAZIV BAZE';}" ><a href="#" class=" icon user"></a>
+						<input name="dbName" type="dbName" class="dbName" value="NAZIV BAZE" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'NAZIV BAZE';}" ><a href="#" class=" icon user"></a>
 					</li>					<li>
-						<input type="text" class="text" value="KORISNIK" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'KORISNIK';}" ><a href="#" class=" icon user"></a>
+						<input name="korisnik" type="text" class="text" value="KORISNIK" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'KORISNIK';}" ><a href="#" class=" icon user"></a>
 					</li>
 					<li>
-						<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><a href="#" class=" icon lock"></a>
+						<input name="sifra" type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}"><a href="#" class=" icon lock"></a>
 					</li>
 					<div class="p-container">
 								<label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Zapamti me</label>
@@ -51,7 +51,7 @@
 			<!--//End-login-form-->
 		  <!-----start-copyright---->
    					<div class="copy-right">
-						<p>Template by <a href="http://www.korrvin.iz.rs">Miodrag Smolović</a></a></p> 
+						<p>(c) 2015 <a href="http://www.korrvin.iz.rs">Miodrag Smolović</a></a></p> 
 	</div>	<!-----//end-copyright---->
 </body>
 </html>
