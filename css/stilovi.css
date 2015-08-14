@@ -227,11 +227,25 @@ a {
     margin: 0;
     padding: 20px 10px;
 }
-
-#unos1
+.pomoc
+{
+	text-align: right;
+}
+.unos
 {
 	width: 60%;
+	padding: 5px;
 }
+.opIzbor
+{
+	padding: 5px;
+	width:	150px;
+}
+.opIzbor2
+{
+	padding: 5px;
+}
+
 
 #divQuery
 {

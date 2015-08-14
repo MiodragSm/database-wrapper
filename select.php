@@ -114,22 +114,69 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 		
 		
 		<div id="content">
-
+		<br/>
+		<article class="pomoc">
+		<a href="http://www.techonthenet.com/mysql/select.php">Pomoć u vezi sintakse SQL "SELECT" komande.</a> <br><br>
+		</article>
 			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" "name="forma1" id="forma1">
-	<br/>
-			<label>Unesi komandu:</label>
-			<input type="text" name="unos1" id="unos1"></input>
+			SELECT &nbsp;
+				<select name="optional" class="opIzbor">
+					<option value="" selected></option>
+					<option value="all">ALL</option>
+					<option value="distinct">DISTINCT</option>
+					<option value="distinctrow"> DISTINCTROW</option>
+				</select> &nbsp;
+			
+			<input type="text" name="unos1" class="unos" required placeholder="Unesite upit"></input> <br><br>
+			FROM &nbsp;&nbsp;
+			
+			<input list="tabele" name="unos2" class="unos" required placeholder="Ime tabele">
+				<datalist id="tabele">
+					<option value="actor">
+					<option value="address">
+					<option value="category">
+					<option value="city">
+					<option value="country">
+					<option value="customer">
+					<option value="film">
+					<option value="film_actor">
+					<option value="film_category">
+					<option value="film_text">
+					<option value="inventory">
+					<option value="language">
+					<option value="payment">
+					<option value="rental">
+					<option value="staff">
+					<option value="store">
+				</datalist> <br><br>
+			<select name="whereUslov" class="opIzbor2">
+				<option value="" selected></option>
+				<option value="where">WHERE</option>
+			</select>&nbsp;
+			<select name="condition" class="opIzbor">
+				<option value="" selected></option>
+				<option value="group by">GROUP BY</option>
+				<option value="having">HAVING</option>
+				<option value="order by">ORDER BY</option>
+				<option value="limit">LIMIT</option>
+				<option value="procedure">PROCEDURE</option>
+				<option value="for update">FOR UPDATE</option>
+				<option value="lock in share mode">LOCK IN SHARE MODE</option>
+			</select> &nbsp;
+			<input type="text" name="unos3" class="unos" placeholder="Opcioni uslov"></input>
+			
 			<br/><br/>
 			<input type="submit" name="izvsi" id="izvrsi" value="Izvrsi komandu"/>
 			</form>
-	<br/>
-	Unesena komada je: &nbsp; 
-	
+		<br/>
+
 		<?php 
 				if (!empty($_POST["unos1"]))
 				{
-					$prom=proveri($_POST["unos1"]);
-					
+	$prom="SELECT ". $_POST["optional"] . " ". proveri($_POST["unos1"]) . " FROM " . proveri($_POST["unos2"]) . " ". $_POST["whereUslov"] . " " . $_POST["condition"] . " " .proveri($_POST["unos3"]);
+	?>				
+	Unesena komada je: &nbsp; 
+	<?php
 					echo $prom;
 		?>
 				<br/><br/>

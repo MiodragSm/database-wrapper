@@ -51,7 +51,7 @@
 			<!--//End-login-form-->
 		  <!-----start-copyright---->
    					<div class="copy-right">
-						<p>(c) 2015 <a href="http://www.korrvin.iz.rs">Miodrag Smolović</a></a></p> 
+			<p>&copy 2015 <a href="http://www.korrvin.iz.rs">Miodrag Smolović</a></p> 
 	</div>	<!-----//end-copyright---->
 </body>
 </html>
