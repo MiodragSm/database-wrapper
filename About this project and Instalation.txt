@@ -1,0 +1,16 @@
+About
+This is a beginners testing/learning project. Don't expect anything.
+
+
+Installation
+The easiest way to run this on a localhost is:
+
+1. Install Wamp or similar package (Of course, you could install Apache, php and the rest separately if you want).
+2. Copy all files from repository into appropriate localhost folder (wamp default is "./www")
+2. Import sakila-db with following parameters:
+	- server = "localhost"
+	- database name = "sakila"
+	- user = "root"
+	- password = ""
+	
+3. Type "localhost" into the address bar of your browser, and you should see login screen if all is done correctly.

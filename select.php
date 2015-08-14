@@ -118,7 +118,7 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 		<article class="pomoc">
 		<a href="http://www.techonthenet.com/mysql/select.php">Pomoć u vezi sintakse SQL "SELECT" komande.</a> <br><br>
 		</article>
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" "name="forma1" id="forma1">
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="forma1" id="forma1">
 			SELECT &nbsp;
 				<select name="optional" class="opIzbor">
 					<option value="" selected></option>
@@ -149,7 +149,7 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 					<option value="staff">
 					<option value="store">
 				</datalist> <br><br>
-			<select name="whereUslov" class="opIzbor2">
+			<select name="whereUslov" class="opIzbor">
 				<option value="" selected></option>
 				<option value="where">WHERE</option>
 			</select>&nbsp;
@@ -166,7 +166,7 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 			<input type="text" name="unos3" class="unos" placeholder="Opcioni uslov"></input>
 			
 			<br/><br/>
-			<input type="submit" name="izvsi" id="izvrsi" value="Izvrsi komandu"/>
+			<input type="submit" name="izvsi" id="izvrsi" value="Izvrši komandu"/>
 			</form>
 		<br/>
 

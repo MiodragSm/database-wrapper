@@ -114,20 +114,53 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 		
 		
 		<div id="content">
+		<br/>
+		<article class="pomoc">
+		<a href="http://www.techonthenet.com/mysql/select.php">Pomoć u vezi sintakse SQL "SELECT" komande.</a> <br><br>
+		</article>
+			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="forma1" id="forma1">
+			
+			INSERT &nbsp;
+			<select name="optional" class="opIzbor">
+				<option value="" selected></option>
+				<option value="LOW_PRIORITY">LOW_PRIORITY</option>
+				<option value="DELAYED">DELAYED</option>
+				<option value="HIGH_PRIORITY">HIGH_PRIORITY</option>
+				<option value="IGNORE">IGNORE</option>
+			</select> &nbsp;
+			INTO &nbsp;
+			<input list="tabele" name="unos1" class="unos" placeholder="Ime tabele (colona1, colona2, ... )"required /> 
+				<datalist id="tabele">
+					<option value="actor">
+					<option value="address">
+					<option value="category">
+					<option value="city">
+					<option value="country">
+					<option value="customer">
+					<option value="film">
+					<option value="film_actor">
+					<option value="film_category">
+					<option value="film_text">
+					<option value="inventory">
+					<option value="language">
+					<option value="payment">
+					<option value="rental">
+					<option value="staff">
+					<option value="store">
+				</datalist><br><br>
+			VALUES &nbsp;
+			<input type="text" name="unos2" class="unos" placeholder="(expression1, expression2, ... )" required></input>
+			<br>
+			<br>
 
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" "name="forma1" id="forma1">
-	<br/>
-			<label>Unesi komandu:</label>
-			<input type="text" name="unos1" class="unos"></input>
-			<br/><br/>
-			<input type="submit" name="izvsi" id="izvrsi" value="Izvrsi komandu"/>
+			<input type="submit" name="izvrsi" id="izvrsi" value="Izvrši komandu"/>
 			</form>
-	<br/>
+		<br/>
 
 		<?php 
 				if (!empty($_POST["unos1"]))
 				{
-					$prom=proveri($_POST["unos1"]);
+	$prom="INSERT ". $_POST["optional"] . " ". proveri($_POST["unos1"]) . " VALUES " . proveri($_POST["unos2"]);
 	?>				
 	Unesena komada je: &nbsp; 
 	<?php
