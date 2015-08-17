@@ -53,54 +53,9 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 				<span id="wsite-title">Pretraga Baze Podataka</span>
 			</a>
 		</span>
-			<div id="avMeni">
-			<p>Osnovne komande</p>
-			<br/>
-				<ul class="meniDefault">
-					<li id="active" class="meni-nav-1">
-						<a href="pretraga.php"> GENERAL</a>
-					</li>					
-					<li id="meni200">
-						<a href="select.php"> SELECT</a>
-					</li>
-					<li id="meni201">
-						<a href="insert.php"> INSERT</a>
-					</li>				
-					<li id="meni202">
-						<a href="update.php"> UPDATE</a>
-					</li>				
-					<li id="meni203">
-						<a href="#"> DELETE!</a>
-					</li>
-					<li id="meni204">
-						<a href="#"> WHERE</a>
-					</li>
-					<li id="meni205">
-						<a href="#"> JOINS</a>
-							<ul class="drugiNivo">
-								<li><a href="#"> LEFT Join</a></li>
-								<li><a href="#"> RIGHT Join</a></li>
-								<li><a href="#"> FULL Join</a></li>
-							</ul>
-					</li>
-					<li id="meni206">
-						<a href="#"> UNION</a>
-					</li>
-					<li id="meni207">
-						<a href="#"> <strong>Advanced</strong></a>
-							<ul class="drugiNivo">
-								<li><a href="#"> DISTINCT</a></li>
-								<li><a href="#"> AND & OR</a></li>
-								<li><a href="#"> ORDER BY</a></li>
-								<li><a href="#"> LIKE</a></li>
-								<li><a href="#"> BETWEEN</a></li>
-							</ul>							
-					</li>
-
-
-				</ul>
-			
-			</div> <!-- avMeni -->
+<?php
+	include("meni.html");
+?>
 	</div> <!-- sideBar -->
 	
 	<div id="mainWrap">
@@ -116,7 +71,7 @@ if (!empty($_POST["sifra"]) && ($_POST["sifra"] != "Password"))
 		<div id="content">
 		<br/>
 		<article class="pomoc">
-		<a href="http://www.techonthenet.com/mysql/select.php">Pomoć u vezi sintakse SQL "SELECT" komande.</a> <br><br>
+		<a href="http://www.techonthenet.com/mysql/insert.php">Pomoć u vezi sintakse SQL "INSERT" komande.</a> <br><br>
 		</article>
 			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" name="forma1" id="forma1">
 			
